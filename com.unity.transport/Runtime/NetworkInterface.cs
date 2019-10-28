@@ -285,15 +285,15 @@ namespace Unity.Networking.Transport
     public struct IPCSocket : INetworkInterface
     {
         [NativeDisableContainerSafetyRestriction] private NativeQueue<IPCManager.IPCQueuedMessage> m_IPCQueue;
-        private NativeQueue<IPCManager.IPCQueuedMessage>.Concurrent m_ConcurrentIPCQueue;
+        [Obsolete] private NativeQueue<IPCManager.IPCQueuedMessage>.Concurrent m_ConcurrentIPCQueue;
         [ReadOnly] private NativeArray<NetworkEndPoint> m_LocalEndPoint;
 
         public NetworkEndPoint LocalEndPoint => m_LocalEndPoint[0];
         public NetworkEndPoint RemoteEndPoint { get; }
 
         public NetworkFamily Family { get; }
-
-        public void Initialize()
+        
+        [Obsolete] public void Initialize()
         {
             m_LocalEndPoint = new NativeArray<NetworkEndPoint>(1, Allocator.Persistent);
             m_LocalEndPoint[0] = IPCManager.Instance.CreateEndPoint();
@@ -406,7 +406,7 @@ namespace Unity.Networking.Transport
             return 0;
         }
 
-        public unsafe int SendMessage(network_iovec* iov, int iov_len, ref NetworkEndPoint address)
+        [Obsolete] public unsafe int SendMessage(network_iovec* iov, int iov_len, ref NetworkEndPoint address)
         {
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
             if (m_LocalEndPoint[0].Family != NetworkFamily.IPC || m_LocalEndPoint[0].nbo_port == 0)

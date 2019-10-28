@@ -27,7 +27,7 @@ namespace Unity.Networking.Transport
         /// <summary>
         /// Create a Concurrent Copy of the NetworkDriver.
         /// </summary>
-        public Concurrent ToConcurrent()
+        [Obsolete] public Concurrent ToConcurrent()
         {
             Concurrent concurrent;
             concurrent.m_EventQueue = m_EventQueue.ToConcurrent();
@@ -40,7 +40,7 @@ namespace Unity.Networking.Transport
             return concurrent;
         }
 
-        private Concurrent ToConcurrentSendOnly()
+        [Obsolete] private Concurrent ToConcurrentSendOnly()
         {
             Concurrent concurrent;
             concurrent.m_EventQueue = default(NetworkEventQueue.Concurrent);
@@ -72,7 +72,7 @@ namespace Unity.Networking.Transport
                 return type;
             }
 
-            public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
+            [Obsolete] public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
             {
                 if (strm.IsCreated && strm.Length > 0)
                 {
@@ -81,7 +81,7 @@ namespace Unity.Networking.Transport
                 return 0;
             }
 
-            public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
+            [Obsolete] public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
             {
                 if (pipe.Id > 0)
                 {
@@ -400,7 +400,7 @@ namespace Unity.Networking.Transport
         {
             public GenericNetworkDriver<T, TNetworkPipelineStageCollection> driver;
 
-            public void Execute()
+            [Obsolete] public void Execute()
             {
                 driver.InternalUpdate();
             }
@@ -504,7 +504,7 @@ namespace Unity.Networking.Transport
                 msg.AppendInt(count);
             }
         }
-        void InternalUpdate()
+        [Obsolete] void InternalUpdate()
         {
             m_PipelineProcessor.Timestamp = m_updateTime;
             int free;
@@ -711,7 +711,7 @@ namespace Unity.Networking.Transport
             return m_NetworkInterface.LocalEndPoint;
         }
 
-        public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
+        [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
         {
             unsafe
             {
@@ -719,7 +719,7 @@ namespace Unity.Networking.Transport
             }
         }
 
-        public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
+        [Obsolete] public unsafe int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
         {
             return ToConcurrentSendOnly().Send(pipe, id, data, len);
         }
@@ -1173,18 +1173,18 @@ namespace Unity.Networking.Transport
                 return m_genericConcurrent.PopEventForConnection(connectionId, out slice);
             }
 
-            public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
+            [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
             {
                 return m_genericConcurrent.Send(pipe, id, strm);
             }
 
-            public int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
+            [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
             {
                 return m_genericConcurrent.Send(pipe, id, data, len);
             }
         }
 
-        public Concurrent ToConcurrent()
+        [Obsolete] public Concurrent ToConcurrent()
         {
             return new Concurrent(m_genericDriver.ToConcurrent());
         }
@@ -1265,12 +1265,12 @@ namespace Unity.Networking.Transport
             return m_genericDriver.CreatePipeline(stages);
         }
 
-        public int Send(NetworkPipeline pipe, NetworkConnection con, DataStreamWriter strm)
+        [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection con, DataStreamWriter strm)
         {
             return m_genericDriver.Send(pipe, con, strm);
         }
 
-        public int Send(NetworkPipeline pipe, NetworkConnection con, IntPtr data, int len)
+        [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection con, IntPtr data, int len)
         {
             return m_genericDriver.Send(pipe, con, data, len);
         }
@@ -1302,18 +1302,18 @@ namespace Unity.Networking.Transport
                 return m_genericConcurrent.PopEventForConnection(connectionId, out slice);
             }
 
-            public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
+            [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection id, DataStreamWriter strm)
             {
                 return m_genericConcurrent.Send(pipe, id, strm);
             }
 
-            public int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
+            [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection id, IntPtr data, int len)
             {
                 return m_genericConcurrent.Send(pipe, id, data, len);
             }
         }
 
-        public Concurrent ToConcurrent()
+        [Obsolete] public Concurrent ToConcurrent()
         {
             return new Concurrent(m_genericDriver.ToConcurrent());
         }
@@ -1395,12 +1395,12 @@ namespace Unity.Networking.Transport
             return m_genericDriver.CreatePipeline(stages);
         }
 
-        public int Send(NetworkPipeline pipe, NetworkConnection con, DataStreamWriter strm)
+        [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection con, DataStreamWriter strm)
         {
             return m_genericDriver.Send(pipe, con, strm);
         }
 
-        public int Send(NetworkPipeline pipe, NetworkConnection con, IntPtr data, int len)
+        [Obsolete] public int Send(NetworkPipeline pipe, NetworkConnection con, IntPtr data, int len)
         {
             return m_genericDriver.Send(pipe, con, data, len);
         }

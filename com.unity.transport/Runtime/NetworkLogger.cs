@@ -178,7 +178,7 @@ namespace Unity.Networking.Transport
         private NativeList<LogMessage> m_LogFile;
         private NativeQueue<LogMessage> m_PendingLog;
 
-        public Concurrent ToConcurrent()
+        [Obsolete] public Concurrent ToConcurrent()
         {
             var concurrent = default(Concurrent);
             concurrent.m_PendingLog = m_PendingLog.ToConcurrent();
@@ -188,7 +188,7 @@ namespace Unity.Networking.Transport
 
         public struct Concurrent
         {
-            public void Log<T>(LogLevel level, T message) where T : struct, INetworkLogMessage
+            [Obsolete] public void Log<T>(LogLevel level, T message) where T : struct, INetworkLogMessage
             {
                 if ((int) level > (int) m_Level)
                     return;
@@ -197,7 +197,7 @@ namespace Unity.Networking.Transport
                 message.Print(ref msg.msg);
                 m_PendingLog.Enqueue(msg);
             }
-            public void Log(LogLevel level, NetworkLogString str)
+            [Obsolete] public void Log(LogLevel level, NetworkLogString str)
             {
                 if ((int) level > (int) m_Level)
                     return;
@@ -205,7 +205,7 @@ namespace Unity.Networking.Transport
                 m_PendingLog.Enqueue(msg);
             }
 
-            internal NativeQueue<LogMessage>.Concurrent m_PendingLog;
+            [Obsolete] internal NativeQueue<LogMessage>.Concurrent m_PendingLog;
             internal LogLevel m_Level;
         }
     }

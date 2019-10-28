@@ -105,7 +105,7 @@ namespace Unity.Networking.Transport
 
     internal struct NetworkPipelineProcessor<TNetworkPipelineStageCollection> : IDisposable where TNetworkPipelineStageCollection: struct, INetworkPipelineStageCollection
     {
-        public Concurrent ToConcurrent()
+        [Obsolete] public Concurrent ToConcurrent()
         {
             var concurrent = new Concurrent
             {
@@ -126,14 +126,14 @@ namespace Unity.Networking.Transport
             internal TNetworkPipelineStageCollection m_StageCollection;
             [ReadOnly] internal NativeList<PipelineImpl> m_Pipelines;
             [ReadOnly] internal NativeList<int> m_StageList;
-            internal NativeQueue<UpdatePipeline>.Concurrent m_SendStageNeedsUpdateWrite;
+            [Obsolete] internal NativeQueue<UpdatePipeline>.Concurrent m_SendStageNeedsUpdateWrite;
             [ReadOnly] internal NativeArray<int> sizePerConnection;
             // TODO: not really read-only, just hacking the safety system
             [ReadOnly] internal NativeList<byte> sharedBuffer;
             [ReadOnly] internal NativeList<byte> sendBuffer;
             [ReadOnly] internal NativeArray<long> m_timestamp;
 
-            public unsafe int Send<T>(T driver, NetworkPipeline pipeline, NetworkConnection connection, NativeSlice<byte> payloadData) where T : struct, INetworkPipelineSender
+            [Obsolete] public unsafe int Send<T>(T driver, NetworkPipeline pipeline, NetworkConnection connection, NativeSlice<byte> payloadData) where T : struct, INetworkPipelineSender
             {
                 var p = m_Pipelines[pipeline.Id-1];
 
@@ -549,7 +549,7 @@ namespace Unity.Networking.Transport
             public NetworkConnection connection;
         }
 
-        internal void UpdateSend<T>(T driver, out int updateCount) where T : struct, INetworkPipelineSender
+        [Obsolete] internal void UpdateSend<T>(T driver, out int updateCount) where T : struct, INetworkPipelineSender
         {
             NativeArray<UpdatePipeline> sendUpdates = new NativeArray<UpdatePipeline>(m_SendStageNeedsUpdateRead.Count + m_SendStageNeedsUpdate.Length, Allocator.Temp);
 
