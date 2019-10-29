@@ -206,6 +206,7 @@ namespace MultiplayPingSample.Server
         }
 
         // Polite update - Wait for our jobs to complete naturally
+        [Obsolete]
         public void Update()
         {
             if (m_Disposed || m_ShuttingDown)
@@ -291,6 +292,7 @@ namespace MultiplayPingSample.Server
         }
 
         // Schedule a pong job, which looks for pings and replies to them
+        [Obsolete]
         void SchedulePongJob()
         {
             var pongJob = new PongJob
@@ -355,6 +357,7 @@ namespace MultiplayPingSample.Server
             }
         }
 
+        [Obsolete]
         static NetworkConnection ProcessSingleConnection(UdpNetworkDriver.Concurrent driver, NetworkConnection connection, out bool terminateServer)
         {
             terminateServer = false;
@@ -392,6 +395,7 @@ namespace MultiplayPingSample.Server
         }
 
         [BurstCompile]
+        [Obsolete]
         struct PongJob : IJob
         {
             public UdpNetworkDriver.Concurrent driver;

@@ -186,6 +186,7 @@ namespace Unity.Networking.Transport.Tests
         {
             public LocalNetworkDriver.Concurrent driver;
             public NativeArray<NetworkConnection> connections;
+            [Obsolete]
             public void Execute(int i)
             {
                 DataStreamReader strmReader;
@@ -200,6 +201,7 @@ namespace Unity.Networking.Transport.Tests
             }
         }
         [Test]
+        [Obsolete]
         public void SendReceiveInParallelJobWorks()
         {
             var serverDriver = new LocalNetworkDriver(new NetworkDataStreamParameter {size = 64});
@@ -249,6 +251,7 @@ namespace Unity.Networking.Transport.Tests
             public LocalNetworkDriver.Concurrent driver;
             public NativeArray<NetworkConnection> connections;
             public NetworkPipeline pipeline;
+            [Obsolete]
             public void Execute(int i)
             {
                 DataStreamReader strmReader;
@@ -263,6 +266,7 @@ namespace Unity.Networking.Transport.Tests
             }
         }
         [Test]
+        [Obsolete]
         public void SendReceiveWithPipelineInParallelJobWorks()
         {
             var timeoutParam = new NetworkConfigParameter

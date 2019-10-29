@@ -31,6 +31,7 @@ public class SoakServer : IDisposable
             m_ServerDriver.Listen();
     }
 
+    [Obsolete]
     public void Update()
     {
         m_Tick++;

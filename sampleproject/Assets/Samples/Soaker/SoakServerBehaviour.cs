@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SoakServerBehaviour : MonoBehaviour
@@ -15,6 +16,7 @@ public class SoakServerBehaviour : MonoBehaviour
         m_Server.Dispose();
     }
 
+    [Obsolete]
     void FixedUpdate()
     {
         m_Server.Update();

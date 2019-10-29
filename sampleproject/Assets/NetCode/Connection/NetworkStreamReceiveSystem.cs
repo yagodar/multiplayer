@@ -29,6 +29,7 @@ public class NetworkStreamReceiveSystem : JobComponentSystem
     private int m_ClientPacketDelay;
     private int m_ClientPacketDrop;
 
+    [Obsolete]
     public bool Listen(NetworkEndPoint endpoint)
     {
         if (m_UnreliablePipeline == NetworkPipeline.Null)
@@ -73,7 +74,10 @@ public class NetworkStreamReceiveSystem : JobComponentSystem
         return ent;
     }
 
+    [Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
     protected override void OnCreateManager()
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
     {
         var reliabilityParams = new ReliableUtility.Parameters {WindowSize = 32};
 

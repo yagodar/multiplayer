@@ -1,3 +1,4 @@
+using System;
 using Unity.Entities;
 using Unity.Networking.Transport;
 
@@ -21,7 +22,10 @@ public class AsteroidsClientServerControlSystem : ComponentSystem
         m_initializeClientServer = true;
     }
 
+    [Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
     protected override void OnUpdate()
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
     {
         if (!m_initializeClientServer)
             return;

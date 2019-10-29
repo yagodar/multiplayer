@@ -27,6 +27,7 @@ namespace MultiplayPingSample.Server
             m_Server = null;
         }
 
+        [Obsolete]
         void Update()
         {
             // Update as fast as our framerate

@@ -1,3 +1,4 @@
+using System;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
@@ -14,6 +15,7 @@ public class PingServerSystem : JobComponentSystem
     {
         public UdpNetworkDriver.Concurrent driver;
 
+        [Obsolete]
         public void Execute(ref PingServerConnectionComponentData connection)
         {
             DataStreamReader strm;

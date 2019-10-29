@@ -1,3 +1,4 @@
+using System;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
@@ -20,6 +21,7 @@ public class RpcSendSystem : JobComponentSystem
         public UdpNetworkDriver.Concurrent driver;
         public NetworkPipeline reliablePipeline;
         public BufferFromEntity<OutgoingRpcDataStreamBufferComponent> rpcBufferFromEntity;
+        [Obsolete]
         public unsafe void Execute(Entity entity, int index, ref NetworkStreamConnection connection)
         {
             if (!connection.Value.IsCreated)

@@ -44,6 +44,7 @@ struct SoakServerUpdateClientsJob : IJobParallelForDefer
     public NetworkPipeline pipeline;
     public NativeArray<SoakClientCtx> connections;
 
+    [Obsolete]
     public void Execute(int i)
     {
         SoakMessage inbound = default(SoakMessage);

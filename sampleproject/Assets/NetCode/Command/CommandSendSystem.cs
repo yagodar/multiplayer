@@ -1,3 +1,4 @@
+using System;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Entities;
@@ -21,6 +22,8 @@ public class CommandSendSystem<TCommandData> : JobComponentSystem
         public BufferFromEntity<TCommandData> inputFromEntity;
         public uint localTime;
         public uint inputTargetTick;
+
+        [Obsolete]
         public unsafe void Execute(Entity entity, int index, [ReadOnly] ref CommandTargetComponent state)
         {
             DataStreamWriter writer = new DataStreamWriter(128, Allocator.Temp);

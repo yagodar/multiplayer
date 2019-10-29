@@ -1106,6 +1106,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_ReliableSequenced_SendRecvOnce()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage));
@@ -1139,6 +1140,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public unsafe void NetworkPipeline_ReliableSequenced_SendRecvWithRTTCalculation()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage));
@@ -1204,6 +1206,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_ReliableSequenced_SendRecvMany()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage));
@@ -1268,6 +1271,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public unsafe void NetworkPipeline_ReliableSequenced_SendRecvManyWithPacketDropHighSeqId()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
@@ -1320,6 +1324,7 @@ namespace Unity.Networking.Transport.Tests
         }
         
         [Test]
+        [Obsolete]
         public void NetworkPipeline_ReliableSequenced_SendRecvManyWithPacketDrop()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
@@ -1346,6 +1351,7 @@ namespace Unity.Networking.Transport.Tests
             SendAndReceiveMessages(clientToServer, serverToClient, clientPipe, serverPipe);
         }
 
+        [Obsolete]
         unsafe void SendAndReceiveMessages(NetworkConnection clientToServer, NetworkConnection serverToClient, NetworkPipeline clientPipe, NetworkPipeline serverPipe)
         {
             DataStreamReader readStrm;
@@ -1473,6 +1479,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_UnreliableSequenced_SendRecvOnce()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(UnreliableSequencedPipelineStage));
@@ -1506,6 +1513,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public unsafe void NetworkPipeline_ReliableSequenced_ClientSendsNothing()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(ReliableSequencedPipelineStage));
@@ -1597,6 +1605,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public unsafe void NetworkPipeline_ReliableSequenced_NothingIsSentAfterPingPong()
         {
             // Use simulator pipeline here just to count packets, need to reset the drivers for this setup
@@ -1670,6 +1679,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public unsafe void NetworkPipeline_ReliableSequenced_IdleAfterPacketDrop()
         {
             // Use simulator drop interval, then first packet will be dropped

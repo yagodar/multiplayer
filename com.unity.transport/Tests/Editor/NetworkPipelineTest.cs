@@ -576,6 +576,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanExtendHeader()
         {
             // Create pipeline
@@ -609,6 +610,7 @@ namespace Unity.Networking.Transport.Tests
             Assert.AreEqual(42, readStrm.ReadInt(ref readCtx));
         }
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanModifyAndRestoreData()
         {
             // Create pipeline
@@ -642,6 +644,7 @@ namespace Unity.Networking.Transport.Tests
             Assert.AreEqual(42, readStrm.ReadInt(ref readCtx));
         }
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanModifyAndRestoreDataInPlace()
         {
             // Create pipeline
@@ -675,6 +678,7 @@ namespace Unity.Networking.Transport.Tests
             Assert.AreEqual(42, readStrm.ReadInt(ref readCtx));
         }
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanModifyData()
         {
             // Create pipeline
@@ -709,6 +713,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_MultiplePipelinesWork()
         {
             var clientPipe = m_ClientDriver.CreatePipeline(typeof(TestPipelineStageWithHeaderTwo), typeof(TestEncryptPipelineStage));
@@ -742,6 +747,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStorePacketsForLaterDeliveryInReceiveLastStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(TestEncryptPipelineStage), typeof(SimulatorPipelineStage));
@@ -754,6 +760,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStorePacketsForLaterDeliveryInReceiveFirstStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(SimulatorPipelineStage), typeof(TestEncryptPipelineStage));
@@ -766,6 +773,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStorePacketsForLaterDeliveryInSendLastStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(TestEncryptPipelineStage), typeof(SimulatorPipelineStageInSend));
@@ -778,6 +786,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStorePacketsForLaterDeliveryInSendFirstStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(SimulatorPipelineStageInSend), typeof(TestEncryptPipelineStage));
@@ -790,6 +799,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStoreSequencedPacketsForLaterDeliveryInSendLastStage()
         {
             // Server needs the simulator as it's the only one sending
@@ -803,6 +813,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStoreSequencedPacketsForLaterDeliveryInSendFirstStage()
         {
             // Server needs the simulator as it's the only one sending
@@ -816,6 +827,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStoreSequencedPacketsForLaterDeliveryInReceiveLastStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(UnreliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
@@ -828,6 +840,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_CanStoreSequencedPacketsForLaterDeliveryInReceiveFirstStage()
         {
             var clientPipe1 = m_ClientDriver.CreatePipeline(typeof(SimulatorPipelineStage), typeof(UnreliableSequencedPipelineStage));
@@ -840,6 +853,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_MultiplePipelinesWithHeadersWork()
         {
             m_ClientDriver.CreatePipeline(typeof(TestPipelineStageWithHeader), typeof(TestPipelineStageWithHeaderTwo));
@@ -849,6 +863,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_MultiplePipelinesWithHeadersWorkWithSimulator()
         {
             //m_ClientDriver.CreatePipeline(typeof(TestPipelineStageWithHeader), typeof(SimulatorPipelineStage), typeof(TestPipelineStageWithHeaderTwo));
@@ -860,6 +875,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_MuliplePipelinesWithInitializers()
         {
             m_ClientDriver.CreatePipeline(typeof(TestPipelineWithInitializers), typeof(TestPipelineWithInitializersTwo));
@@ -869,6 +885,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void NetworkPipeline_MuliplePipelinesWithInitializersAndSimulator()
         {
             m_ClientDriver.CreatePipeline(typeof(TestPipelineWithInitializers), typeof(SimulatorPipelineStage), typeof(TestPipelineWithInitializersTwo));
@@ -877,6 +894,7 @@ namespace Unity.Networking.Transport.Tests
             TestPipeline(30, serverPipe);
         }
 
+        [Obsolete]
         private void TestPipeline(int packetCount, NetworkPipeline serverPipe, int packetDelay = 100)
         {
             // Connect to server

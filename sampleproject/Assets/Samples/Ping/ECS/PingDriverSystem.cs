@@ -81,7 +81,10 @@ public class PingDriverSystem : JobComponentSystem
             }
         }
     }
+    [Obsolete]
+#pragma warning disable CS0809 // Obsolete member overrides non-obsolete member
     protected override JobHandle OnUpdate(JobHandle inputDep)
+#pragma warning restore CS0809 // Obsolete member overrides non-obsolete member
     {
         var commandBuffer = m_Barrier.CreateCommandBuffer();
         // Destroy drivers if the PingDriverComponents were removed

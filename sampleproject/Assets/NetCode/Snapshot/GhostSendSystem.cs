@@ -258,6 +258,7 @@ public class GhostSendSystem<TGhostSerializerCollection> : JobComponentSystem
 
         public uint currentTick;
         public uint localTime;
+        [Obsolete]
         public unsafe void Execute()
         {
             var snapshotAck = ackFromEntity[connectionEntity];

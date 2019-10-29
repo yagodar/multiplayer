@@ -366,6 +366,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void DisconnectTimeoutOnServer()
         {
             using (var host = new LocalDriverHelper(default(NetworkEndPoint),
@@ -403,6 +404,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void SendDataToRemoteEndPoint()
         {
             using (var host = new LocalDriverHelper(default(NetworkEndPoint)))
@@ -499,6 +501,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void FillInternalBitStreamBuffer()
         {
             const int k_InternalBufferSize = 1000;
@@ -569,6 +572,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void SendAndReceiveMessage_RealNetwork()
         {
             using (var clientSendData = new DataStreamWriter(64, Allocator.Persistent))
@@ -639,6 +643,7 @@ namespace Unity.Networking.Transport.Tests
         }
 
         [Test]
+        [Obsolete]
         public void SendAndReceiveMessage()
         {
             using (var clientSendData = new DataStreamWriter(64, Allocator.Persistent))

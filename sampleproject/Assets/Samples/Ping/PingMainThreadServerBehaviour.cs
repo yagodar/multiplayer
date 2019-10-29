@@ -2,6 +2,7 @@
 using Unity.Networking.Transport;
 using Unity.Collections;
 using Unity.Jobs;
+using System;
 
 public class PingMainThreadServerBehaviour : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PingMainThreadServerBehaviour : MonoBehaviour
         m_connections.Dispose();
     }
 
+    [Obsolete]
     void FixedUpdate()
     {
         // Update the NetworkDriver. It schedules a job so we must wait for that job with Complete

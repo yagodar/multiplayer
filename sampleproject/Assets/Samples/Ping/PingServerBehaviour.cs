@@ -3,6 +3,7 @@ using UnityEngine;
 using Unity.Networking.Transport;
 using Unity.Collections;
 using Unity.Jobs;
+using System;
 
 public class PingServerBehaviour : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class PingServerBehaviour : MonoBehaviour
         }
     }
 
+    [Obsolete]
     static NetworkConnection ProcessSingleConnection(UdpNetworkDriver.Concurrent driver, NetworkConnection connection)
     {
         DataStreamReader strm;
@@ -113,6 +115,7 @@ public class PingServerBehaviour : MonoBehaviour
     }
 #else
     [BurstCompile]
+    [Obsolete]
     struct PongJob : IJobParallelForDefer
     {
         public UdpNetworkDriver.Concurrent driver;
@@ -132,6 +135,7 @@ public class PingServerBehaviour : MonoBehaviour
         m_updateHandle.Complete();
     }
 
+    [Obsolete]
     void FixedUpdate()
     {
         // Wait for the previous frames ping to complete before starting a new one, the Complete in LateUpdate is not
